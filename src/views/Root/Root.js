@@ -1,7 +1,8 @@
 import React from 'react';
 import './index.css';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TwitterView from '../TwitterViev/TwitterView';
-import ArticleView from '../ArticleView/ArticleView';
+import ArticlesView from '../ArticlesView/ArticlesView';
 import NotesView from '../NotesView/NotesView';
 
 const initialStateItems = [
@@ -38,9 +39,16 @@ class Root extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>hello world</h1>
-      </div>
+      <BrowserRouter>
+        <>
+          <h1>hello world</h1>
+          <Switch>
+            <Route exact path='/' component={TwitterView} />
+            <Route path='/articles' component={ArticlesView} />
+            <Route path='/notes' component={NotesView} />
+          </Switch>
+        </>
+      </BrowserRouter>
     );
   }
 }
