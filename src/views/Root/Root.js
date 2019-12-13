@@ -1,18 +1,22 @@
-import React from "react";
-import "./index.css";
+import React from 'react';
+import './index.css';
+import TwitterView from '../TwitterViev/TwitterView';
+import ArticleView from '../ArticleView/ArticleView';
+import NotesView from '../NotesView/NotesView';
 
 const initialStateItems = [
   {
-    image: "https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp.jpg",
-    name: "Dan Abramov",
-    description: "React core member",
-    twitterLink: "https://twitter.com/dan_abramov"
+    image:
+      'https://pbs.twimg.com/profile_images/906557353549598720/oapgW_Fp.jpg',
+    name: 'Dan Abramov',
+    description: 'React core member',
+    twitterLink: 'https://twitter.com/dan_abramov'
   }
 ];
 
 class Root extends React.Component {
   state = {
-    items: [...initialStateItems],
+    items: [...initialStateItems]
   };
 
   addItem = e => {
