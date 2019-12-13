@@ -1,11 +1,10 @@
 import React from 'react';
-import ListWrapper from './components/ListWrapper/ListWrapper';
-import './index.css';
 
 const App = () => (
-    <div>
-        <ListWrapper />
-    </div>
+  <div className='wrapper'>
+    <h1 className='mainHeader'>Hello, world</h1>
+    <h2 className='secondaryHeader'>Hello, eduweb</h2>
+  </div>
 );
 
 export default App;
