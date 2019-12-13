@@ -1,5 +1,6 @@
 import React from "react";
 import "./index.css";
+import AppContext from '../../context';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import TwittersView from '../TwittersView/TwittersView';
 import ArticlesView from '../ArticlesView/ArticlesView';
@@ -20,6 +21,7 @@ class Root extends React.Component {
   state = {
     items: [...initialStateItems],
     isModalOpen: false,
+    name: 'Roman',
   };
 
   addItem = e => {
@@ -56,7 +58,7 @@ class Root extends React.Component {
     
     return (
       <BrowserRouter>
-        <>
+        <AppContext.Provider value={this.state.name}>
           <Header openModalFn={this.openModal} />
           <h1>hello world</h1>
           <Switch>
@@ -65,10 +67,16 @@ class Root extends React.Component {
             <Route path="/notes" component={NotesView} />
           </Switch>
           { isModalOpen && <Modal closeModalFn={this.closeModal} /> }
-        </>
+        </AppContext.Provider>
       </BrowserRouter>
     );
   }
 }
 
 export default Root;
+
+// 1. usunąć initialStateItems
+// 2. Przywrócić funkcjonowanie addItem
+// 3. Dopasować Form.js do nowych potrzeb
+// 4. Przystosować widoki podstron do nowych itemów
+// 5. Wyświetlać odpowiednie notatki na podstronach 
